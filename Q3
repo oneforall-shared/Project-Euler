@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+    long long int num;            //'long long' or 'long long int' is a signed integral type is at least 64 bits//
+    int max = 0;
+    int oddPrime = 3;
+    
+    printf("Enter number : ");
+    scanf("%lld",&num);          // input is 'long long int' type //
+    
+    while(num%2==0)             // prime factors ar : 2,3,5,7,9... but 2 and 3 are special. I divided prime factors into 2 and 3 clubs. 
+                                   when divided by 2 someother code and when divided by 3 the factors can keep on increasing by 2
+                                   because prime factors increase by even numbers starting from 3 {3,5,7,9,11,13,17,19,21,23,29...} //
+    {
+        max=2;
+        num/=2;
+    }
+    while(num!=1)                     // when number is not equal to 1 condition should be met //
+    {
+        while(num%oddPrime==0)
+        {
+            max=oddPrime;
+            num/=oddPrime;
+        }
+        oddPrime+=2;
+    }
+    printf("%d\n",max);
+    return 0;
+}
